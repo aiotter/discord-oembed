@@ -6,6 +6,7 @@ Analyse oEmbed of the sent link.
 
 ## Compartible providers
 * Instagram
+* TikTok
 
 Create issue if you want other services to be supported!
 

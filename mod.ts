@@ -1,7 +1,8 @@
 import { startBot } from "https://deno.land/x/discordeno@12.0.1/mod.ts";
-import { Instagram } from "./providers/mod.ts";
+import { Instagram, Tiktok } from "./providers/mod.ts";
 
 const instagram = new Instagram();
+const tiktok = new Tiktok();
 
 startBot({
   token: Deno.env.get("TOKEN") as string,
@@ -17,6 +18,10 @@ startBot({
 
       if (instagram.hasUrl(message.content)) {
         const newEmbeds = await instagram.getEmbeds(message.content);
+        embeds.push(...newEmbeds);
+      }
+      if (tiktok.hasUrl(message.content)) {
+        const newEmbeds = await tiktok.getEmbeds(message.content);
         embeds.push(...newEmbeds);
       }
 
