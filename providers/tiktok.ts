@@ -1,5 +1,5 @@
 import { request, VideoOembed } from "../oembed.ts";
-import { assertEquals } from "https://deno.land/std@0.105.0/testing/asserts.ts";
+import { assertEquals, assertStringIncludes } from "https://deno.land/std@0.105.0/testing/asserts.ts";
 import { BasicOembedProvider } from "./base.ts";
 import { DOMParser } from "https://deno.land/x/deno_dom@v0.1.13-alpha/deno-dom-wasm.ts";
 
@@ -39,9 +39,9 @@ export class Tiktok extends BasicOembedProvider {
 Deno.test("TikTok oEmbed test", async () => {
   const tiktok = new Tiktok();
   const embed = await tiktok.getEmbed("https://vt.tiktok.com/ZSJvYnyT4/");
-  assertEquals(
-    embed.image.url,
-    "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/5f2f7c9cf5bc4d7ba64b773db6942543_1624617121?x-expires=1629781200&x-signature=ns7a%2Fuz0hGaAY%2BlInX7IOpXfnm4%3D",
+  assertStringIncludes(
+    embed.image.url as string,
+    "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/5f2f7c9cf5bc4d7ba64b773db6942543_1624617121",
   );
   assertEquals(
     embed.url,

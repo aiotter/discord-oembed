@@ -42,7 +42,7 @@ Deno.test("Instagram oEmbed test", async () => {
   );
   assertStringIncludes(
     embed.image.url as string,
-    "https://instagram.fitm1-1.fna.fbcdn.net/v/t51.2885-15/e35/s480x480/237378146_852157725410631_1135845236952775157_n.jpg",
+    "https://scontent-nrt1-1.cdninstagram.com/v/t51.2885-15/e35/s480x480/237378146_852157725410631_1135845236952775157_n.jpg",
   );
   assertStringIncludes(
     embed.url as string,
